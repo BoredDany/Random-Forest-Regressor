@@ -4,34 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Predicción con Random Forest</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h2>Predicción con Random Forest</h2>
-    <form action="/predict" method="post">
-        <label for="visitas">Visitas:</label>
-        <input type="number" step="any" name="visitas" required><br>
+    <div class="fondo-contenedor">
+        <div class="superposicion-gradiente"></div>
+        <div class="contenedor-principal">
+            <div class="tarjeta">
+                <h2 class="titulo">Predicción con Random Forest</h2>
 
-        <label for="logins">Logins:</label>
-        <input type="number" step="any" name="logins" required><br>
+                <form action="/predict" method="post" class="formulario">
+                    <div class="grupo-formulario">
+                        <label for="visitas">Visitas:</label>
+                        <input type="number" step="any" name="visitas" required>
+                    </div>
 
-        <label for="dispositivos_nuevos">Dispositivos Nuevos:</label>
-        <input type="number" step="any" name="dispositivos_nuevos" required><br>
+                    <div class="grupo-formulario">
+                        <label for="logins">Logins:</label>
+                        <input type="number" step="any" name="logins" required>
+                    </div>
 
-        <label for="sesiones">Sesiones:</label>
-        <input type="number" step="any" name="sesiones" required><br>
+                    <div class="grupo-formulario">
+                        <label for="dispositivos_nuevos">Dispositivos Nuevos:</label>
+                        <input type="number" step="any" name="dispositivos_nuevos" required>
+                    </div>
 
-        <label for="zona_wifi">Zona Wifi:</label>
-        <input type="number" step="any" name="zona_wifi" required><br>
+                    <div class="grupo-formulario">
+                        <label for="sesiones">Sesiones:</label>
+                        <input type="number" step="any" name="sesiones" required>
+                    </div>
 
-        <button type="submit">Predecir</button>
-    </form>
+                    <div class="grupo-formulario">
+                        <label for="zona_wifi">Zona Wifi:</label>
+                        <select name="zona_wifi" id="zona_wifi" required class="select-estilizado">
+                            <option value="" disabled selected>Selecciona una zona wifi</option>
+                            {% for zona in zonas_wifi %}
+                            <option value="{{ zona.id }}">{{ zona.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
 
-    {% if prediction is not none %}
-        <h3>Predicción: {{ prediction }}</h3>
-    {% endif %}
+                    <button type="submit" class="boton">Predecir</button>
+                </form>
 
-    {% if error is not none %}
-        <h3 style="color: red;">Error: {{ error }}</h3>
-    {% endif %}
+                {% if prediction is not none %}
+                    <div class="resultado">
+                        <h3>Predicción N° Consumidores:</h3>
+                        <div class="valor-prediccion">{{ prediction }}</div>
+                    </div>
+                {% endif %}
+
+               {% if error %}
+                    <div class="error">
+                        <h3>Error:</h3>
+                        <p>{{ error }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

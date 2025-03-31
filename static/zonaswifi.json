@@ -1,0 +1,22 @@
+[
+    {"id": 1, "nombre": "BIBLIOTECA NUEVO PARAISO"},
+    {"id": 2, "nombre": "BIBLIOTECA BICENTENARIO"},
+    {"id": 3, "nombre": "BIBLIOTECA BOQUILLA"},
+    {"id": 4, "nombre": "BIBLIOTECA PONTEZUELA"},
+    {"id": 5, "nombre": "BIBLIOTECA DISTRITAL BAYUNCA"},
+    {"id": 6, "nombre": "CIUDADELA LA PAZ"},
+    {"id": 7, "nombre": "BIBLIOTECA COLOMBIATON"},
+    {"id": 8, "nombre": "JORGE ARTEL"},
+    {"id": 9, "nombre": "PUNTA CANOA"},
+    {"id": 10, "nombre": "TIERRA BOMBA"},
+    {"id": 11, "nombre": "PARQUE SAN FRANCISCO"},
+    {"id": 12, "nombre": "INSPECCION DE POLICIA DEL BOSQUE"},
+    {"id": 13, "nombre": "PLAZA DE LA ADUANA"},
+    {"id": 14, "nombre": "INSPECCION DE POLICIA DE BOCAGRANDE"},
+    {"id": 15, "nombre": "INSPECCION DE POLICIA BLAS DE LEZO"},
+    {"id": 16, "nombre": "INSPECCION DE POLICA EL POZON"},
+    {"id": 17, "nombre": "INSPECCION DE POLICIA CIUDADELA 2000"},
+    {"id": 18, "nombre": "INSPECCION DE POLICIA ALTOS DEL JARDIN"},
+    {"id": 19, "nombre": "INSPECCION DE POLICIA DE LAS PALMERAS"},
+    {"id": 20, "nombre": "INSPECCION DE POLICIA DE TERNERA"}
+]

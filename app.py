@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request, jsonify, render_template
 import joblib
 import numpy as np
@@ -6,10 +8,14 @@ app = Flask(__name__)
 
 # Cargar el modelo entrenado
 model = joblib.load('random_forest_model.pkl')
+def load_wifi_zones():
+    with open('static/zonaswifi.json', 'r', encoding='utf-8') as f:
+        return json.load(f)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    zonas_wifi = load_wifi_zones()
+    return render_template('index.html', zonas_wifi=zonas_wifi)
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -27,10 +33,21 @@ def predict():
         # Hacer la predicción
         prediction = model.predict(input_data)[0]
 
-        return render_template('index.html', prediction=prediction)
+        # Cargar las zonas WiFi nuevamente
+        zonas_wifi = load_wifi_zones()
+
+        return render_template('index.html',
+                               prediction=prediction,
+                               zonas_wifi=zonas_wifi,
+                               error=None)
 
     except Exception as e:
-        return render_template('index.html', error=str(e))
+        # Cargar las zonas WiFi incluso en caso de error
+        zonas_wifi = load_wifi_zones()
+        return render_template('index.html',
+                               error=str(e),
+                               zonas_wifi=zonas_wifi,
+                               prediction=None)
 
 if __name__ == '__main__':
     app.run(debug=True)

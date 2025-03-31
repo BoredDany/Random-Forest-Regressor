@@ -1,0 +1,202 @@
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Fondo con efecto de gradiente y grid */
+.fondo-contenedor {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #0c0c0c;
+}
+
+.superposicion-gradiente {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background:
+        linear-gradient(to right, #4f4f4f2e 1px, transparent 1px),
+        linear-gradient(to bottom, #8080800a 1px, transparent 1px);
+    background-size: 14px 24px;
+    z-index: 0;
+}
+
+/* Contenedor principal centrado */
+.contenedor-principal {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Tarjeta blanca con bordes redondos */
+.tarjeta {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 1.8rem;
+}
+
+/* Estilos del formulario */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-formulario label {
+    font-weight: 400;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.grupo-formulario input {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.grupo-formulario input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Botón */
+.boton {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #0c0c0c;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.boton:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* Resultados y errores */
+.resultado {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.resultado h3 {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.valor-prediccion {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #4CAF50;
+}
+
+.error {
+    margin-top: 2rem;
+    text-align: center;
+    color: #FF5252;
+}
+
+.error h3 {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+/* Estilos para el select de zonas WiFi */
+.select-estilizado {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.select-estilizado:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor del select con flecha personalizada */
+.grupo-formulario {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-formulario::after {
+    content: "▼";
+    position: absolute;
+    top: 65%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    font-size: 0.8rem;
+}
+
+/* Estilos para las opciones del select */
+.select-estilizado option {
+    background-color: #2c3e50;
+    color: white;
+    padding: 8px;
+}
+
+/* Estilo para el placeholder (opción deshabilitada) */
+.select-estilizado option[disabled] {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Efecto hover en las opciones (solo para algunos navegadores) */
+.select-estilizado option:hover {
+    background-color: #3498db;
+}
