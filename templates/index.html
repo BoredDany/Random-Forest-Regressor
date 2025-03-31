@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción con Random Forest</title>
+</head>
+<body>
+    <h2>Predicción con Random Forest</h2>
+    <form action="/predict" method="post">
+        <label for="visitas">Visitas:</label>
+        <input type="number" step="any" name="visitas" required><br>
+
+        <label for="logins">Logins:</label>
+        <input type="number" step="any" name="logins" required><br>
+
+        <label for="dispositivos_nuevos">Dispositivos Nuevos:</label>
+        <input type="number" step="any" name="dispositivos_nuevos" required><br>
+
+        <label for="sesiones">Sesiones:</label>
+        <input type="number" step="any" name="sesiones" required><br>
+
+        <label for="zona_wifi">Zona Wifi:</label>
+        <input type="number" step="any" name="zona_wifi" required><br>
+
+        <button type="submit">Predecir</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Predicción: {{ prediction }}</h3>
+    {% endif %}
+
+    {% if error is not none %}
+        <h3 style="color: red;">Error: {{ error }}</h3>
+    {% endif %}
+</body>
+</html>
